@@ -6,7 +6,6 @@ def generate_password(length: int = 10):
     password = "".join(random.choice(alphabet) for extent in range(length))
     return password
 
-<<<<<<< HEAD
 def generate_password(length):
     letters = string.ascii_letters + string.digits
     return ''.join(random.choice(letters) for extent in range(length))
@@ -25,8 +24,3 @@ def check_password_strength(password):
         return "sakto lang 🟡"
     else:
         return "Maangas 🟢"
-=======
-password = generate_password()
-print(f"Generated Password: {password}")
-
->>>>>>> e3375b5c41d8228d15df7706ba2e431f03af0359
