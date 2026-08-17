@@ -4,17 +4,17 @@ import time
 import sys
 
 
-def generate_password(length: int = 16): #make sure that the limit is only 16 integers
-    alphabet = string.ascii_letters + string.digits + string.punctuation # this will include uppercase, lowercase, digits and symbols
+def generate_password(length: int = 16): 
+    alphabet = string.ascii_letters + string.digits + string.punctuation 
     return "".join(random.choice(alphabet) for extent in range(length))
 
-def check_password_strength(password): #check if the password has uppercase, lowercase, digits and symbols
+def check_password_strength(password): 
     has_upper = any(letter.isupper() for letter in password)    
     has_lower = any(letter.islower() for letter in password)
     has_digits = any(digit.isdigit() for digit in password)
     has_symbols = any(mark in string.punctuation for mark in password)
     
-    score = sum([has_upper, has_lower, has_digits, has_symbols]) #this will give a score of for each condition it mets
+    score = sum([has_upper, has_lower, has_digits, has_symbols]) 
 
     if len(password) < 10 or score <= 2:
         return "Mahina 🔴"
@@ -23,7 +23,7 @@ def check_password_strength(password): #check if the password has uppercase, low
     else:
         return "Maangas 🟢"
 
-def get_user_input(prompt, min_val=6, max_val=16): #this will ensure that the user input is between 6 and 16
+def get_user_input(prompt, min_val=6, max_val=16): 
     while True:
         try:
             value = int(input(prompt))
@@ -36,7 +36,7 @@ def get_user_input(prompt, min_val=6, max_val=16): #this will ensure that the us
 def spacer():
     print("\n" + "-"*40 + "\n")
             
-def generate_password_flow(): #this will generate the password and check its strength if the password is not strong enough it will generate again until it gets a strong password
+def generate_password_flow(): 
     while True:
         length = get_user_input("Specify The Length of Your Password (6-16): ")
         password =  generate_password(length)
@@ -45,7 +45,7 @@ def generate_password_flow(): #this will generate the password and check its str
         print(f"\nGenerated Password: {password}")
         print(f"Strength: {strength}")
         
-        if strength != "Maangas 🟢": #mas maganda pag Maangas keysa strong
+        if strength != "Maangas 🟢": 
             print("Password is not strong enough. Generating again...\n")
             time.sleep(1)
             continue
@@ -54,7 +54,7 @@ def generate_password_flow(): #this will generate the password and check its str
         if retry == "yes":
             return password
         
-def countdown_exit(): #this will countdown from 3 to 1 before exiting the program
+def countdown_exit(): 
     for extent in range(3, 0 ,-1):
         spacer()
         print(f"Existing Program in {extent} seconds...")
